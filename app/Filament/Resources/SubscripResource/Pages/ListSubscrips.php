@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\SubscripResource\Pages;
+namespace App\Filament\Resources\SubscribeResource\Pages;
 
-use App\Filament\Resources\SubscripResource;
+use App\Filament\Resources\SubscribeResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-class ListSubscrips extends ListRecords
+class ListSubscribes extends ListRecords
 {
-    protected static string $resource = SubscripResource::class;
+    protected static string $resource = SubscribeResource::class;
 
     protected function getHeaderActions(): array
     {

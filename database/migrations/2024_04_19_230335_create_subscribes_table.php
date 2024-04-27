@@ -12,10 +12,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subscrips', function (Blueprint $table) {
+        Schema::create('subscribes', function (Blueprint $table) {
             $table->id();
             $table->string('email');
-$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
@@ -25,6 +25,6 @@ $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
      */
     public function down(): void
     {
-        Schema::dropIfExists('subscrips');
+        Schema::dropIfExists('subscribes');
     }
 };

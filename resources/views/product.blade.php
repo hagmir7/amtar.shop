@@ -1,176 +1,83 @@
-@extends('layouts.app')
+@extends('layouts.base')
 
 
 @section('content')
-    <div class="banner-wrapper my-wrapper has_background">
-        <img src="/assets/imgs/hero-product.jpg" class="img-responsive attachment-1920x447 size-1920x447" alt="img">
-        <div class="banner-wrapper-inner">
-            <h1 class="page-title">{{ $product->name }}</h1>
-            <div role="navigation" aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs">
-                <ul class="trail-items d-flex justify-content-center" style="list-style: none">
-                    <li class="trail-item trail-begin tajawal"><a href="/"><span>Accueil</span></a></li>
-                    <li> &#xa0; > &#xa0; </li>
-                    <li class="trail-item trail-end active"><span>Détail du produit </span></li>
-                </ul>
+<div class="py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5">
+            <div class="carousel-horizontal-container">
+              <div class="single-product-carousel-horizontal border border-silver">
+
+                @foreach ($product->images as $image)
+                    <div class="slider-zoom"><img src="{{ Storage::url($image->path) }}" alt="" /></div>
+                @endforeach
+              </div>
+              <div class="d-flex silder-horizontal-nav mt-2">
+                @foreach ($product->images as $image)
+                <div class="slider-item border border-silver"><img class="img-fluid" src="{{ Storage::url($image->path) }}" alt="" /></div>
+                @endforeach
+
+              </div>
             </div>
-        </div>
-    </div>
-
-
-    <div class="single-thumb-vertical main-container shop-page no-sidebar">
-        <div class="container">
-            <div class="row">
-                <div class="main-content col-md-12">
-                    <div class="lynessa-notices-wrapper"></div>
-                    <div id="product-27"
-                        class="post-27 product type-product status-publish has-post-thumbnail product_cat-table product_cat-new-arrivals product_cat-lamp product_tag-table product_tag-sock first instock shipping-taxable purchasable product-type-variable has-default-attributes">
-                        <div class="main-contain-summary">
-                            <div class="contain-left has-gallery">
-
-
-                                <div class="single-left" style="float: left">
-                                    <div
-                                        class="lynessa-product-gallery lynessa-product-gallery--with-images lynessa-product-gallery--columns-4 images">
-                                        <span href="#" class="lynessa-product-gallery__trigger activeZoom d-none">
-                                            <img draggable="false" class="emoji" alt="🔍"
-                                                src="https://s.w.org/images/core/emoji/11/svg/1f50d.svg">
-                                        </span>
-                                        <span href="#" class="hide-zoom d-none">
-                                            <svg viewBox="0 0 24 24" fill="none" height="20px" width="20px"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
-                                                    stroke-linejoin="round"></g>
-                                                <g id="SVGRepo_iconCarrier">
-                                                    <path
-                                                        d="M9.60997 9.60714C8.05503 10.4549 7 12.1043 7 14C7 16.7614 9.23858 19 12 19C13.8966 19 15.5466 17.944 16.3941 16.3878M21 14C21 9.02944 16.9706 5 12 5C11.5582 5 11.1238 5.03184 10.699 5.09334M3 14C3 11.0069 4.46104 8.35513 6.70883 6.71886M3 3L21 21"
-                                                        stroke="#ffffff" stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round"></path>
-                                                </g>
-                                            </svg>
-                                        </span>
-                                        <div class="flex-viewport">
-                                            <figure class="lynessa-product-gallery__wrapper">
-                                                @foreach ($product->images as $image)
-                                                <div class="lynessa-product-gallery__image">
-                                                    <img class="toZoom" alt="img" src="{{ Storage::url($image->path) }}">
-                                                </div>
-                                                @endforeach
-                                            </figure>
-                                        </div>
-                                        <ol class="flex-control-nav flex-control-thumbs">
-                                            @foreach ($product->images as $image)
-                                            <li>
-                                                <img src="{{ Storage::url($image->path) }}" alt="img">
-                                            </li>
-                                            @endforeach
-                                        </ol>
-                                    </div>
-                                </div>
-                                <div class="summary entry-summary" style=" text-align:  start; padding:0 20px ">
-                                    <div class="flash">
-                                        <span class="onnew"><span class="text">New</span></span>
-                                    </div>
-
-
-                                    <h1 class="product_title entry-title">{{ $product->name }}</h1>
-                                    <p class="price">
-                                        <span class="lynessa-Price-amount amount">
-                                            {{ $product->price }} MAD
-                                        </span>
-                                    </p>
-
-                                    {{-- <p class="stock in-stock tajawal"> Disponibilité : <span> {{
-                                            $product->status}}</span></p> --}}
-                                    <div class="lynessa-product-details__short-description">
-                                        <p class="tajawal">{{ $product->description }}</p>
-                                    </div>
-                                    <table class="variations">
-                                        <tbody>
-                                            <tr>
-                                                <td class="label tajawal">
-                                                    <label>Taille</label>
-                                                </td>
-
-                                                <td class="value">
-                                                    <div class="data-val attribute-pa_color" data-attributetype="box_style"
-                                                        style=" display:flex ;margin-right: 4px;">
-                                                        @foreach ($product->sizes as $size)
-                                                        <div class="btn bg-light mx-1 border text-uppercase" data-value="{{ $size->name }}">
-                                                            {{ $size->name }}
-                                                        </div>
-                                                        @endforeach
-                                                    </div>
-
-                                                </td>
-
-
-                                            </tr>
-
-                                            <tr>
-                                                <td class="label tajawal">
-                                                    <label>Colours</label>
-                                                </td>
-
-                                                <td class="value">
-                                                    <div class="data-val attribute-pa_color flex me-2"
-                                                        data-attributetype="box_style">
-                                                        @foreach ($product->colors as $color)
-                                                        <div class="btn p-3 mx-1 border text-uppercase" style="background-color: {{ $color->code }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ $color->name }}" data-value="{{ $color->name }}">
-                                                        </div>
-                                                        @endforeach
-                                                    </div>
-
-                                                </td>
-
-
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#checkOutModal" class="btn btn-primary m-2 w-100">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="icon icon-tabler icons-tabler-outline icon-tabler-brand-telegram">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                            <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" />
-                                        </svg>
-                                        Acheter maintenant
-                                    </a>
-
-                                    @auth
-                                        @livewire('add-button', ['product' => $product], key($product->id))
-                                    @endauth
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    @if ($product->body)
-                        <div class="mb-4">
-                            <h4>Description</h4>
-                            <div>{!! $product->body !!}</div>
-                        </div>
-                    @endif
+          </div>
+          <div class="col-lg-7">
+            <div><a class="d-block mb-1 text-muted small" href="#">{{ $product->category->name }}</a>
+              <h4 class="mb-2">{{ $product->name }}</h4>
+              <div class="small- d-flex align-items-center gap-2">
+                <div class="small text-silver-lead">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <i class="bi bi-star-fill"></i>
                 </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" style="z-index: 10000" id="checkOutModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        @livewire('create-order', ['id' => $product->id])
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
-                    </div>
+                <span class="small text-gray"> (3 {{ __("customer reviews") }})</span>
+              </div>
+              <div class="mt-2"> <span class="fs-5 text-muted text-decoration-line-through me-2"></span><span class="fs-3 text-dark fw-bold">{{ $product->price }} MAD</span></div>
+              <p class="text-gray my-3">{{ $product->description }}</p>
+              <ul class="small">
+                {{-- <li class="mb-1"> <span class="me-2 text-muted">SUK:</span><span class="text-dark fw-bold">NTB7SDVX44</span></li> --}}
+                <li class="mb-1"> <span class="me-2 text-muted">Category:</span><span class="text-dark fw-bold">{{ $product->category->name }}</span></li>
+                {{-- <li class="mb-1"> <span class="me-2 text-muted">Tags:</span><a class="text-dark fw-bold" href="#">Camera ,</a><a class="text-dark fw-bold" href="#">Video</a></li> --}}
+              </ul>
+              <div class="d-flex align-items-center gap-2 mt-4">
+                <div class="quantity-group">
+                  <div class="input-group input-group-sm">
+                    <button class="btn-mins btn text-gray border rounded-0" id="button-addon1" type="button"><i class="bi bi-dash-lg"></i></button>
+                    <input class="py-2 form-control text-center fw-bold" type="number" min="1" value="1" placeholder=""/>
+                    <button class="btn-plus btn text-gray border rounded-0" id="button-addon2" type="button"><i class="fa-solid fa-plus"></i></button>
+                  </div>
+                </div>
+                <!-- Add To Cart Btn.--><a class="rounded-0 px-4 btn btn-primary mx-1"><i class="bi bi-basket me-2"></i> &#xa0; {{ __("Add To Cart") }}</a>
+                <!-- Favorite Btn.--><a class="btn rounded-0 shadow-sm border me-1" href="#"><i class="bi bi-heart"></i></a><a class="btn rounded-0 shadow-sm border" href="#"><i class="bi bi-arrow-left-right"></i></a>
+              </div>
+              <div class="d-flex-align-items-center mt-4">
+                    <span class="me-2 text-muted">{{ __("Share") }} </span>
+                    <a class="social-x-icon rounded-circle shadow-sm border me-2" href="#"> <i class="fa-brands fa-facebook-f"></i></a>
+                    <a class="social-x-icon rounded-circle shadow-sm border me-2" href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a class="social-x-icon rounded-circle shadow-sm border me-2" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a class="social-x-icon rounded-circle shadow-sm border me-2" href="#"><i class="fa-solid fa-envelope"> </i></a>
                 </div>
             </div>
+          </div>
         </div>
+      </div>
+    </div>
+    <div class="py-4">
+      <div class="container">
+        <div class="row">
+          <ul class="nav nav-pills- justify-content-center text-dark-lead border-bottom">
+            <li class="nav-item"><a class="fs-5 px-4 rounded-0 hover:bottom-line nav-link active" id="description-tab" href="#" data-bs-toggle="tab" data-bs-target="#description" role="tab" aria-controls="description" aria-selected="true">{{ __("About Product") }}</a></li>
+            {{-- <li class="nav-item"><a class="fs-5 px-4 rounded-0 hover:bottom-line nav-link" id="additional-info-tab" href="#" data-bs-toggle="tab" data-bs-target="#additional-info" role="tab" aria-controls="additional-info" aria-selected="false">Additional information</a></li> --}}
+            {{-- <li class="nav-item"><a class="fs-5 px-4 rounded-0 hover:bottom-line nav-link" id="reviews-tab" href="#" data-bs-toggle="tab" data-bs-target="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews (3)</a></li> --}}
+          </ul>
+          <div class="tab-content">
+            <div class="pt-4 tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="">
+              {!! $product->body !!}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 @endsection

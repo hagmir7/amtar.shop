@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\SubscripResource\Pages;
-use App\Filament\Resources\SubscripResource\RelationManagers;
-use App\Models\Subscrip;
+use App\Filament\Resources\SubscribeResource\Pages;
+use App\Filament\Resources\SubscribeResource\RelationManagers;
+use App\Models\Subscribe;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class SubscripResource extends Resource
+class SubscribeResource extends Resource
 {
-    protected static ?string $model = Subscrip::class;
+    protected static ?string $model = Subscribe::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
@@ -69,9 +69,9 @@ class SubscripResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSubscrips::route('/'),
-            'create' => Pages\CreateSubscrip::route('/create'),
-            'edit' => Pages\EditSubscrip::route('/{record}/edit'),
+            'index' => Pages\ListSubscribes::route('/'),
+            'create' => Pages\CreateSubscribe::route('/create'),
+            'edit' => Pages\EditSubscribe::route('/{record}/edit'),
         ];
     }
 }

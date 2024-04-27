@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Filament\Resources\SubscripResource\Pages;
+namespace App\Filament\Resources\SubscribeResource\Pages;
 
-use App\Filament\Resources\SubscripResource;
+use App\Filament\Resources\SubscribeResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
-class CreateSubscrip extends CreateRecord
+class CreateSubscribe extends CreateRecord
 {
-    protected static string $resource = SubscripResource::class;
+    protected static string $resource = SubscribeResource::class;
 }

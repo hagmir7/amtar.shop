@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.base')
 @section('content')
 <div class="banner-wrapper my-wrapper has_background">
     <img src="/assets/imgs/banner-category.jpg" class="img-responsive attachment-1920x447 size-1920x447" alt="img">

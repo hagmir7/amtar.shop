@@ -2,11 +2,11 @@
 
 namespace App\Livewire;
 
-use App\Models\Subscrip as ModelsSubscrip;
+use App\Models\Subscribe as ModelsSubscribe;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class Subscrip extends Component
+class Subscribe extends Component
 {
     #[Validate('required|email|min:3')]
     public $email;
@@ -15,8 +15,8 @@ class Subscrip extends Component
     public function save()
     {
         $this->validate();
-        if(!ModelsSubscrip::where('email', $this->email)->first()){
-            ModelsSubscrip::create(['email' => $this->email]);
+        if(!ModelsSubscribe::where('email', $this->email)->first()){
+            ModelsSubscribe::create(['email' => $this->email]);
         }
         $this->reset();
         $this->message = "Vous êtes abonné avec succès, Merci!";
@@ -24,6 +24,6 @@ class Subscrip extends Component
 
     public function render()
     {
-        return view('livewire.subscrip');
+        return view('livewire.subscribe');
     }
 }
