@@ -1946,3 +1946,30 @@ footer .bottom-footer-dark ul li {
     -ms-transition: all .5s;
     -o-transition: all .5s;
 }
+
+
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+    .product-image {
+        height: 300px!important;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+
+    .product-image {
+        height: 300px!important;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 992px) {}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (max-width: 1400px) {}
