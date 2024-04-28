@@ -1,12 +1,18 @@
-<div class="single_variation_wrap">
-    <div class="lynessa-variation-add-to-cart variations_button ">
-        <button wire:click='addToCart' class="btn btn-primary m-2 w-100">
-            @if ($in_cart)
-                <span wire:loading.remove> <x-check-icon /></span>
-            @else
-                 <span wire:loading.remove> <x-cart-icon /> Ajouter au panier </span>
-            @endif
-             <span wire:loading><x-spenner-icon-brown /></span>
-        </button>
+ <div class="d-flex align-items-center gap-2 mt-4">
+    <div class="quantity-group">
+        <div class="input-group input-group-sm">
+            <button class="btn-mins btn text-gray border rounded-0" id="button-addon1" type="button"><i class="bi bi-dash-lg"></i></button>
+            <input class="py-2 form-control text-center fw-bold" type="number" min="1" value="1" placeholder=""/>
+            <button class="btn-plus btn text-gray border rounded-0" id="button-addon2" type="button"><i class="fa-solid fa-plus"></i></button>
+        </div>
     </div>
+    <!-- Add To Cart Btn.-->
+    <a class="rounded-0 px-4 btn btn-primary mx-1"><i class="bi bi-basket me-2"></i> &#xa0; {{ __("Add To Cart") }}</a>
+    <!-- Favorite Btn.-->
+    <a class="btn rounded-0 shadow-sm border me-1" href="#">
+        <i class="bi bi-heart"></i>
+    </a>
+    <a class="btn rounded-0 shadow-sm border" href="#">
+        <i class="bi bi-arrow-left-right"></i>
+    </a>
 </div>
